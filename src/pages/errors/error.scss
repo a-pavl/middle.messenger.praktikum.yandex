@@ -1,0 +1,11 @@
+@use '../../../styles/scss/variables' as vars;
+@use '../../../styles/scss/base.scss';
+@use '../../../styles/scss/buttons';
+
+.error-code {
+    font-size: 2.5rem;
+}
+.error-text {
+    font-size: 1.25rem;
+    padding-bottom: 3rem;
+}

@@ -1,0 +1,83 @@
+@use '../../../styles/scss/base.scss';
+@use '../../../styles/scss/variables' as vars;
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.redirect-back {
+    align-items: center;
+    background-color: vars.$section-grey;
+    display: flex;
+    justify-content: center;
+    width: 4rem;
+}
+
+.profile {
+    width: 40%;
+
+    &__avatar {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+
+        &-label {
+            text-align: center;
+        }
+    }
+
+    &__details {
+        margin-bottom: 2rem;
+    }
+
+    &__detail {
+        border-bottom: 1px solid vars.$border-grey;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 0;
+        width: 100%;
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+        
+        &-label {
+            color: vars.$label-black;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+    
+        &-value {
+            color: vars.$label-grey;
+            font-size: 0.75rem;
+        }
+    }
+
+    &__action {
+        border-bottom: 1px solid vars.$border-grey;
+        padding: 10px 0;
+        width: 100%;
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+
+        &-edit {
+            background: none;
+            border: none;
+            color: vars.$base-blue;
+            cursor: pointer;
+        }
+
+        &-exit {
+            background: none;
+            border: none;
+            color: vars.$action-exit;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+        <title>{{title}}</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="redirect-back">
+                <input id="backButton" class="redirect-back__button" type="image"></input>
+            </div>
+            <main>
+                <div class="profile">
+                    <div class="profile__avatar">
+                        <img id="avatarImg"></image>
+                        <p class="profile__avatar-label">{{details.avatar.label}}</p>
+                    </div>
+                    <div class="profile__details">
+                        <div class="profile__detail">
+                            <div class="profile__detail-label">{{details.email.label}}</div>
+                            <div class="profile__detail-value">{{details.email.value}}</div>
+                        </div>
+                        <div class="profile__detail">
+                            <div class="profile__detail-label">{{details.login.label}}</div>
+                            <div class="profile__detail-value">{{details.login.value}}</div>
+                        </div>
+                        <div class="profile__detail">
+                            <div class="profile__detail-label">{{details.firstName.label}}</div>
+                            <div class="profile__detail-value">{{details.firstName.value}}</div>
+                        </div>
+                        <div class="profile__detail">
+                            <div class="profile__detail-label">{{details.secondName.label}}</div>
+                            <div class="profile__detail-value">{{details.secondName.value}}</div>
+                        </div>
+                        <div class="profile__detail">
+                            <div class="profile__detail-label">{{details.displayName.label}}</div>
+                            <div class="profile__detail-value">{{details.displayName.value}}</div>
+                        </div>
+                        <div class="profile__detail">
+                            <div class="profile__detail-label">{{details.phone.label}}</div>
+                            <div class="profile__detail-value">{{details.phone.value}}</div>
+                        </div>
+                    </div>
+                    <div class="profile__actions">
+                        <div class="profile__action">
+                            {{> button id="editDetailsButton" label="Изменить данные" className="profile__action-edit" }}
+                        </div>
+                        <div class="profile__action">
+                            {{> button id="editPasswordButton" label="Изменить пароль" className="profile__action-edit" }}
+                        </div>
+                        <div class="profile__action">
+                            {{> button id="logoutButton" label="Выйти" className="profile__action-exit" }}
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <script type="module" src="./profile.js"></script>
+    </body>
+</html>
