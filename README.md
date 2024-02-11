@@ -30,6 +30,8 @@ Cсылка на шаблон [Figma](https://www.figma.com/file/qQvGNXLFQOs0kRQ
 Страницы приложения
 - [Чат (на текущий момент - страница-заглушка)](https://deploy--bright-granita-b4b21a.netlify.app/)
 - [Профиль пользователя](https://deploy--bright-granita-b4b21a.netlify.app/pages/profile/profile)
+- [Профиль - Изменение данных пользователя](https://bright-granita-b4b21a.netlify.app/pages/profile/edit/data.html)
+- [Профиль - Изменение пароля](https://bright-granita-b4b21a.netlify.app/pages/profile/edit/password.html)
 - [Авторизация](https://deploy--bright-granita-b4b21a.netlify.app/pages/login/login)
 - [Регистрация](https://deploy--bright-granita-b4b21a.netlify.app/pages/signin/signin)
 - [Ошибка 404](https://deploy--bright-granita-b4b21a.netlify.app/pages/errors/404)
