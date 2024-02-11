@@ -24,6 +24,9 @@ export default defineConfig({
             context(pagePath) {
                 return pageData[pagePath];
             },
+            helpers: {
+                add_quotes: (value) => `"${value}"`,
+            },
         }),
     ],
 })

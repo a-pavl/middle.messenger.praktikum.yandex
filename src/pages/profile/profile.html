@@ -9,40 +9,42 @@
     <body>
         <div class="container">
             <div class="redirect-back">
-                <input id="backButton" class="redirect-back__button" type="image"></input>
+                <input id="backButton" type="image"></input>
             </div>
             <main>
                 <div class="profile">
+                    {{#with details}}
                     <div class="profile__avatar">
                         <img id="avatarImg"></image>
-                        <p class="profile__avatar-label">{{details.avatar.label}}</p>
+                        <p class="profile__avatar-label">{{avatar.label}}</p>
                     </div>
                     <div class="profile__details">
                         <div class="profile__detail">
-                            <div class="profile__detail-label">{{details.email.label}}</div>
-                            <div class="profile__detail-value">{{details.email.value}}</div>
+                            <div class="profile__detail-label">{{email.label}}</div>
+                            <div class="profile__detail-value">{{email.value}}</div>
                         </div>
                         <div class="profile__detail">
-                            <div class="profile__detail-label">{{details.login.label}}</div>
-                            <div class="profile__detail-value">{{details.login.value}}</div>
+                            <div class="profile__detail-label">{{login.label}}</div>
+                            <div class="profile__detail-value">{{login.value}}</div>
                         </div>
                         <div class="profile__detail">
-                            <div class="profile__detail-label">{{details.firstName.label}}</div>
-                            <div class="profile__detail-value">{{details.firstName.value}}</div>
+                            <div class="profile__detail-label">{{firstName.label}}</div>
+                            <div class="profile__detail-value">{{firstName.value}}</div>
                         </div>
                         <div class="profile__detail">
-                            <div class="profile__detail-label">{{details.secondName.label}}</div>
-                            <div class="profile__detail-value">{{details.secondName.value}}</div>
+                            <div class="profile__detail-label">{{secondName.label}}</div>
+                            <div class="profile__detail-value">{{secondName.value}}</div>
                         </div>
                         <div class="profile__detail">
-                            <div class="profile__detail-label">{{details.displayName.label}}</div>
-                            <div class="profile__detail-value">{{details.displayName.value}}</div>
+                            <div class="profile__detail-label">{{displayName.label}}</div>
+                            <div class="profile__detail-value">{{displayName.value}}</div>
                         </div>
                         <div class="profile__detail">
-                            <div class="profile__detail-label">{{details.phone.label}}</div>
-                            <div class="profile__detail-value">{{details.phone.value}}</div>
+                            <div class="profile__detail-label">{{phone.label}}</div>
+                            <div class="profile__detail-value">{{phone.value}}</div>
                         </div>
                     </div>
+                    {{/with}}
                     <div class="profile__actions">
                         <div class="profile__action">
                             {{> button id="editDetailsButton" label="Изменить данные" className="profile__action-edit" }}

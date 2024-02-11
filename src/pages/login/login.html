@@ -14,17 +14,25 @@
                 </div>
                 <div class="form__content">
                     <div class="form__element">
-                        {{> input name="login" label="Логин" type="text" labelClassname="form__element-label" inputClassName="form__element-input" }}
+                        {{> input id="login" name="login" 
+                            label="Логин" type="text" 
+                            labelClassname="form__element-label" 
+                            inputClassName="form__element-input" 
+                        }}
                     </div>
                     <div class="form__element">
-                        {{> input name="password" label="Пароль" type="password" labelClassname="form__element-label" inputClassName="form__element-input" }}
+                        {{> input id="password" name="password" 
+                            label="Пароль" type="password" 
+                            labelClassname="form__element-label" 
+                            inputClassName="form__element-input" 
+                        }}
                     </div>
                 </div>
                 <div class="form__footer">
                     <div class="form__element">
                         {{> button id="confirmButton" label="Войти" className="confirm-button" }}
                     </div>
-                    <div class="form__element form__footer-redirect">
+                    <div class="form__element">
                         {{> button id="redirectButton" label="Нет аккаунта?" className="redirect-button" }}
                     </div>
                 </div>

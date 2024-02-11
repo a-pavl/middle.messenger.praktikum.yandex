@@ -1,2 +1,26 @@
-<label for={{name}} class={{labelClassname}}>{{label}}</label>
-<input type={{type}} id={{name}} name={{name}} class={{inputClassName}} />
+{{#if label}}
+    {{#if id}}
+        <label for={{{add_quotes id}}}
+        {{#if labelClassname}}
+            class={{{add_quotes labelClassname}}}
+        {{/if}}
+        >
+            {{label}}
+        </label>
+    {{/if}}
+{{/if}}
+<input name={{{add_quotes name}}} 
+    type={{{add_quotes type}}}
+    {{#if id}}
+        id={{{add_quotes id}}} 
+    {{/if}}
+    {{#if inputClassName}}
+        class={{{add_quotes inputClassName}}}
+    {{/if}}
+    {{#if value}}
+        value={{{add_quotes value}}}
+    {{/if}}
+    {{#if placeholder}}
+        placeholder={{{add_quotes placeholder}}}
+    {{/if}}
+/>
