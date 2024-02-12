@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+        <title>{{title}}</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="redirect-back">
+                <input id="backButton" type="image"></input>
+            </div>
+            <main>
+                <form class="profile">
+                    <div class="profile__avatar">
+                        <label for="avatarInput" class="profile__avatar-input">
+                            <img id="avatarImg"></image>
+                        </label>
+                        {{> input id="avatarInput" name="avatar" type="file" }}
+                    </div>
+                    <div class="profile__details">
+                        {{#with details}}
+                        <div class="profile__detail">
+                            {{> input id="email" name="email" type="text" 
+                                label=email.label value=email.value
+                                labelClassname="profile__detail-label" 
+                                inputClassName="profile__detail-input" 
+                            }}
+                        </div>
+                        <div class="profile__detail">
+                            {{> input id="login" name="login" type="text" 
+                                label=login.label value=login.value
+                                labelClassname="profile__detail-label" 
+                                inputClassName="profile__detail-input" 
+                            }}
+                        </div>
+                        <div class="profile__detail">
+                            {{> input id="firstName" name="first_name" type="text" 
+                                label=firstName.label value=firstName.value
+                                labelClassname="profile__detail-label" 
+                                inputClassName="profile__detail-input" 
+                            }}
+                        </div>
+                        <div class="profile__detail">
+                            {{> input id="secondName" name="second_name" type="text" 
+                                label=secondName.label value=secondName.value
+                                labelClassname="profile__detail-label" 
+                                inputClassName="profile__detail-input" 
+                            }}
+                        </div>
+                        <div class="profile__detail">
+                            {{> input id="displayName" name="display_name" type="text" 
+                                label=displayName.label value=displayName.value
+                                labelClassname="profile__detail-label" 
+                                inputClassName="profile__detail-input" 
+                            }}
+                        </div>
+                        <div class="profile__detail">
+                            {{> input id="phone" name="phone" type="text" 
+                                label=phone.label value=phone.value
+                                labelClassname="profile__detail-label" 
+                                inputClassName="profile__detail-input" 
+                            }}
+                        </div>
+                        {{/with}}
+                    </div>
+                    <div class="profile__buttons">
+                        {{> button id="confirmButton" label="Сохранить" className="profile__button-confirm" }}
+                    </div>
+                </form>
+            </main>
+        </div>
+
+        <script type="module" src="./profile_edit.js"></script>
+    </body>
+</html>
