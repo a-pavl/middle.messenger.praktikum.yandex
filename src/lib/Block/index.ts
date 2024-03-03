@@ -123,15 +123,15 @@ export class Block {
   }
 
   _render() {
-    const docFragment = this.compile(this.render(), this._props);
+    const documentFragment = this.compile(this.render(), this._props);
 
-    const newElement = docFragment.firstElementChild as HTMLElement;
+    const element = documentFragment.firstElementChild as HTMLElement;
 
     if (this._element) {
-      this._element.replaceWith(newElement);
+      this._element.replaceWith(element);
     }
 
-    this._element = newElement;
+    this._element = element;
 
     this._subscribeToEvents();
   }
@@ -146,27 +146,26 @@ export class Block {
   }
 
   compile(template: string, context: object) {
-    const contextAndStubs = {
+    const contextAndTemplates = {
       ...context,
       children: [] as Array<{ component: unknown, embed(node: DocumentFragment): void }>,
       refs: this.getRefs(),
     };
 
-    const html = Handlebars.compile(template)(contextAndStubs);
+    const html = Handlebars.compile(template)(contextAndTemplates);
 
-    const temp = document.createElement('template');
+    const tempElement = document.createElement('template');
 
-    temp.innerHTML = html;
-    contextAndStubs.children?.forEach(({ embed }) => {
-      embed(temp.content);
+    tempElement.innerHTML = html;
+    contextAndTemplates.children?.forEach(({ embed }) => {
+      embed(tempElement.content);
     });
 
     Object.values(this.children).forEach((child) => {
-      const stub = temp.content.querySelector(`[data-id="${child.id}"]`);
-      stub?.replaceWith(child.getContent()!);
+      tempElement.content.querySelector(`[data-id="${child.id}"]`)?.replaceWith(child.getContent()!);
     });
 
-    return temp.content;
+    return tempElement.content;
   }
 
   getId() {

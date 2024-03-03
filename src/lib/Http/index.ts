@@ -25,7 +25,7 @@ export class Http {
 
     return new Promise((resolve, reject) => {
       if (!method) {
-        reject('Invalid Http Method');
+        reject('Некорректный Http метод');
         return;
       }
 
