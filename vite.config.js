@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { join, resolve } from "path";
+import { join } from "path";
 
 export default defineConfig({
     root: join(__dirname, "src"),
