@@ -33,11 +33,9 @@
         }
     }
 
-    &:hover {
-        .context-menu__list {
-            transition: 0.5s;
-            opacity: 1;
-            visibility: visible;
-        }
+    &:hover > &__list {
+        opacity: 1;
+        transition: 0.5s;
+        visibility: visible;
     }
 }
