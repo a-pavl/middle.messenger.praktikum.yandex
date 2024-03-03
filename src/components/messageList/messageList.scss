@@ -1,0 +1,13 @@
+.messageList {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+
+    &__element {
+        margin: 10px 0;
+    }
+}

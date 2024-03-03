@@ -1,0 +1,62 @@
+@use '../../styles/variables' as vars;
+
+.card {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    &__avatar {
+        padding-right: 20px;
+        height: 47px;
+        width: 47px;
+    }
+
+    &__label {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 5px;
+
+        &-name {
+            color: vars.$label-black;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        &-date {
+            color: vars.$label-grey;
+            font-size: 0.4rem;
+        }
+    }
+
+    &__details {
+        align-items: end;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        &-text {
+            color: vars.$label-grey;
+            display: -webkit-box;
+            font-size: 0.6rem;
+            overflow: hidden;
+            padding-right: 20px;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        &-counter {
+            background: vars.$base-blue;
+            border-radius: 50%;
+            color: vars.$white;
+            font-size: 10px;
+            font-weight: bold;
+            height: 20px;
+            line-height: 20px;
+            max-width: 20px;
+            min-width: 20px;
+            text-align: center;
+        }
+    }
+}

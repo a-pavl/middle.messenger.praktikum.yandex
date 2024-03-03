@@ -1,0 +1,16 @@
+@use '../../styles/variables' as vars;
+
+.chatCardList {
+    margin: 0;
+    padding: 0;
+
+    &__element {
+        border-bottom: 1px solid vars.$border-grey;
+        cursor: pointer;
+        padding: 5px 10px;
+
+        &:hover {
+            background-color: vars.$hover-blue;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<div class="sideBar">
+    <div class="sideBar__header">
+        <div class="sideBar__header-actions">
+            <div class="sideBar__header-addChatAction">
+            </div>
+            <div>
+                {{{ Button label="Profile >" className="action-button" onClick=onRedirectToProfile }}}
+            </div>
+        </div>
+        <div class="sideBar__header-search">
+            {{{ ChatSearch name="search" type="text"  
+                placeholder="Search"
+                onInput=onInput
+                ref="search"
+            }}}
+        </div>
+    </div>
+    <div class="sideBar__content">
+        {{{ ChatCardList chatList=chatList ref="chatCardList" }}}
+    </div>
+</div>

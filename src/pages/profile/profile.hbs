@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="redirect-back">
+        {{{ Input name="redirectToMain" type="image"
+            src=redirectBackIcon
+            onClick=onRedirectToMainPage
+        }}}
+    </div>
+    <div class="content-container">
+        <div class="profile">
+            <div class="profile__avatar">
+                <img src={{avatar}}></image>
+                <p class="profile__avatar-label">{{displayName}}</p>
+            </div>
+            <div class="profile__details">
+                <div class="profile__detail">
+                    <div class="profile__detail-label">Почта</div>
+                    <div class="profile__detail-value">{{email}}</div>
+                </div>
+                <div class="profile__detail">
+                    <div class="profile__detail-label">Логин</div>
+                    <div class="profile__detail-value">{{login}}</div>
+                </div>
+                <div class="profile__detail">
+                    <div class="profile__detail-label">Имя</div>
+                    <div class="profile__detail-value">{{firstName}}</div>
+                </div>
+                <div class="profile__detail">
+                    <div class="profile__detail-label">Фамилия</div>
+                    <div class="profile__detail-value">{{secondName}}</div>
+                </div>
+                <div class="profile__detail">
+                    <div class="profile__detail-label">Имя в чате</div>
+                    <div class="profile__detail-value">{{displayName}}</div>
+                </div>
+                <div class="profile__detail">
+                    <div class="profile__detail-label">Телефон</div>
+                    <div class="profile__detail-value">{{phone}}</div>
+                </div>
+            </div>
+            <div class="profile__actions">
+                <div class="profile__action">
+                {{{ Button label="Изменить данные" className="profile__action-edit" onClick=onRedirectToProfileEditData }}}
+                </div>
+                <div class="profile__action">
+                {{{ Button label="Изменить пароль" className="profile__action-edit" onClick=onRedirectToProfileEditPassword }}}
+                </div>
+                <div class="profile__action">
+                {{{ Button label="Выйти" className="profile__action-exit" onClick=onRedirectToLoginPage }}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="redirect-back">
+        {{{ Input name="redirectToProfile" type="image"
+            src=redirectBackIcon
+            onClick=onRedirect
+        }}}
+    </div>
+    <div class="content-container">
+        <div class="profile">
+            <div class="profile__avatar">
+                <label for="avatar" class="profile__avatar-input">
+                    <img src={{avatar}}></image>
+                </label>
+                {{{ Input name="avatar" type="file" }}}
+            </div>
+            <div class="profile__details">
+                <div class="profile__detail">
+                    {{{ Label label="Почта" name="email"
+                        className="profile__detail-label"
+                    }}}
+                    {{{ InputField name="email" type="text" value=email
+                        className="profile__detail-input"
+                        inputFieldClassName="inputField__profile"
+                        validate=validationRules.email
+                        ref="email"
+                    }}}
+                </div>
+                <div class="profile__detail">
+                    {{{ Label label="Логин" name="login"
+                        className="profile__detail-label"
+                    }}}
+                    {{{ InputField name="login" type="text" value=login
+                        className="profile__detail-input"
+                        inputFieldClassName="inputField__profile"
+                        validate=validationRules.login
+                        ref="login"
+                    }}}
+                </div>
+                <div class="profile__detail">
+                    {{{ Label label="Имя" name="first_name"
+                        className="profile__detail-label"
+                    }}}
+                    {{{ InputField name="first_name" type="text" value=firstName
+                        className="profile__detail-input"
+                        inputFieldClassName="inputField__profile"
+                        validate=validationRules.name
+                        ref="first_name"
+                    }}}
+                </div>
+                <div class="profile__detail">
+                    {{{ Label label="Фамилия" name="second_name"
+                        className="profile__detail-label"
+                    }}}
+                    {{{ InputField name="second_name" type="text" value=secondName
+                        className="profile__detail-input"
+                        inputFieldClassName="inputField__profile"
+                        validate=validationRules.name
+                        ref="second_name"
+                    }}}
+                </div>
+                <div class="profile__detail">
+                    {{{ Label label="Имя в чате" name="display_name"
+                        className="profile__detail-label"
+                    }}}
+                    {{{ InputField name="display_name" type="text" value=displayName
+                        className="profile__detail-input"
+                        inputFieldClassName="inputField__profile"
+                        validate=validationRules.name
+                        ref="display_name"
+                    }}}
+                </div>
+                <div class="profile__detail">
+                    {{{ Label label="Телефон" name="phone"
+                        className="profile__detail-label"
+                    }}}
+                    {{{ InputField name="phone" type="text" value=phone
+                        className="profile__detail-input"
+                        inputFieldClassName="inputField__profile"
+                        validate=validationRules.phone
+                        ref="phone"
+                    }}}
+                </div>
+            </div>
+            <div class="profile__buttons">
+                {{{ Button label="Сохранить" className="profile__button-confirm" onClick=onSubmit }}}
+            </div>
+        </div>
+    </div>
+</div>

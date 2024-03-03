@@ -1,0 +1,21 @@
+<div class="card">
+    <img class="card__avatar" src={{chat.avatar}}></image>
+    <div class="card__info">
+        <div class="card__label">
+            <div class="card__label-name">
+                {{chat.name}}
+            </div>
+            <div class="card__label-date">
+                {{lastMessage.dateCreated}}
+            </div>
+        </div>
+        <div class="card__details">
+            <div class="card__details-text">
+                {{lastMessage.text}}
+            </div>
+            <div class="card__details-counter">
+                {{chat.unreadMessages}}
+            </div>
+        </div>
+    </div>
+</div>

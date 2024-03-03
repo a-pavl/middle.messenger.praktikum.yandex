@@ -1,0 +1,10 @@
+{{#with message}}
+    <li class="message{{#if isAuthorMessage}} message-author{{/if}}">
+        <article class="message__content">
+            <div class="message__text">{{text}}</div>
+            <div class="message__time{{#if isAuthorMessage}} message__time-author{{/if}}{{#if isRead}} message__time-read{{/if}}">
+                <span>{{timeCreated}}</span>
+            </div>
+        </article>
+    </li>
+{{/with}}

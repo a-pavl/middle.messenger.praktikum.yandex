@@ -1,0 +1,22 @@
+*:focus {
+    outline: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: Inter, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+main, #app {
+    height: 100%;
+    width: 100%;
+}

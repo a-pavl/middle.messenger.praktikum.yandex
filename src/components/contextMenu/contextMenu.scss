@@ -1,0 +1,45 @@
+@use '../../styles/variables' as vars;
+
+.contextMenu {
+    position: relative;
+
+    &__icon {
+        cursor: pointer;
+        display: flex;
+    }
+
+    &__list {
+        background-color: vars.$white;
+        border-radius: 12px;
+        box-shadow: 0px 0px 6px vars.$form-shadow;
+        opacity: 0;
+        padding: 7.5px 0;
+        position: absolute;
+        transition: 0.5s;
+        visibility: hidden;
+        -webkit-transition: 0.5s;
+
+        // TODO: remove static styling, add dynamic calculation based on an element display in DOM
+        &-userSettings {
+            right: -10px;
+            top: 50px;
+        }
+
+        // TODO: remove static styling, add dynamic calculation based on an element display in DOM
+        &-messageAttachments {
+            bottom: 55px;
+            left: 0px;
+            right: initial;
+            top: initial;
+        }
+    }
+
+    &:hover {
+        .contextMenu__list {
+            transition: 0.5s;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: 0.5s;
+        }
+    }
+}

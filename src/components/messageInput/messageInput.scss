@@ -1,0 +1,28 @@
+@use '../../styles/variables' as vars;
+
+.messageInput {
+    align-items: center;
+    display: flex;
+
+    &__attachFile {
+        margin-right: 16px;
+    }
+
+    &__confirmBtn {
+        display: flex;
+        margin-left: 10px;
+    }
+
+    &__input {
+        background-color: vars.$input-grey;
+        border: 0;
+        border-radius: 30px;
+        margin-right: 10px;
+        padding: 10px 10px;
+        width: calc(100% - 20px);
+
+        &::placeholder {
+            text-align: left;
+        }
+    }
+}
