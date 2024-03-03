@@ -1,15 +1,15 @@
-<div class="chatWindow">
-    <header class="chatWindow__header">
-        <img class="chatWindow__header-avatar" src={{chat.avatar}}></image>
-        <span class="chatWindow__header-name">{{chat.name}}</span>
-        <div class="chatWindow__header-ellipsis">
+<div class="chat-window">
+    <header class="chat-window__header">
+        <img class="chat-window__header-avatar" src={{chat.avatar}}></image>
+        <span class="chat-window__header-name">{{chat.name}}</span>
+        <div class="chat-window__header-ellipsis">
             {{{ ContextMenu className=userSettings.className icon=userSettings.icon items=userSettings.items }}}
         </div>
     </header>
-    <div class="chatWindow__content">
+    <div class="chat-window__content">
         {{{ MessageList messageList=messageList }}}
     </div>
-    <footer class="chatWindow__footer">
+    <footer class="chat-window__footer">
         {{{ MessageInput }}}
     </footer>
 

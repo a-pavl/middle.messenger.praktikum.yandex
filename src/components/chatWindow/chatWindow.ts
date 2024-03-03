@@ -16,7 +16,7 @@ export class ChatWindow extends Block {
     ];
 
     props.userSettings = {
-      className: 'contextMenu__list-userSettings',
+      className: 'context-menu__list-userSettings',
       icon: ellipsisImg,
       items: userSettingsItems,
     };

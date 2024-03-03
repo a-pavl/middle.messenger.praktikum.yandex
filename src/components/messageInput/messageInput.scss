@@ -1,6 +1,6 @@
 @use '../../styles/variables' as vars;
 
-.messageInput {
+.message-input {
     align-items: center;
     display: flex;
 
@@ -18,7 +18,7 @@
         border: 0;
         border-radius: 30px;
         margin-right: 10px;
-        padding: 10px 10px;
+        padding: 10px;
         width: calc(100% - 20px);
 
         &::placeholder {

@@ -1,13 +1,12 @@
 @use '../../styles/variables' as vars;
 
-.contextMenuItem {
+.context-menu-item {
     align-items: center;
     cursor: pointer;
     display: flex;
     font-size: 12px;
     padding: 7.5px 15px;
     transition: 0.2s;
-    -webkit-transition: 0.2s;
     white-space: nowrap;
 
     &__icon {
@@ -19,6 +18,5 @@
     &:hover {
         background-color: vars.$input-grey;
         transition: 0.5s;
-        -webkit-transition: 0.5s;
     }
 }

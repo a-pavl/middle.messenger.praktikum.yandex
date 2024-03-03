@@ -2,7 +2,7 @@
 
 .message {
     background-color: vars.$section-grey;
-    border-radius: 0 12px 12px 12px;
+    border-radius: 0 12px 12px;
     float: left;
     height: auto;
     max-width: 75%;
@@ -12,7 +12,7 @@
 
     &-author {
         background-color: vars.$hover-blue;
-        border-radius: 12px 12px 0px 12px;
+        border-radius: 12px 12px 0;
         float: right;
     }
 

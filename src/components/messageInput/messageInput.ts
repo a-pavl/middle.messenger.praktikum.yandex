@@ -26,7 +26,7 @@ export class MessageInput extends Block {
         message: messageValidation,
       },
       messageAttachments: {
-        className: 'contextMenu__list-messageAttachments',
+        className: 'context-menu__list-messageAttachments',
         icon: clipImg,
         items: messageAttachmentsItems,
       },
