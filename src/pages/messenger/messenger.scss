@@ -1,0 +1,19 @@
+@use '../../styles/variables' as vars;
+
+.messenger {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    &__side-bar {
+        height: 100%;
+        min-width: 315px;
+        width: 15%;
+    }
+
+    &__chat-window {
+        height: 100%;
+        width: 85%;
+    }
+}
+

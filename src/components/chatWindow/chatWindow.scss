@@ -1,0 +1,36 @@
+@use '../../styles/variables' as vars;
+
+.chat-window {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px 20px;
+
+    &__header {
+        align-items: center;
+        display: flex;
+        border-bottom: 1px solid vars.$border-grey;
+        padding-bottom: 10px;
+
+        &-avatar {
+            height: 34px;
+            width: 34px;
+            margin-right: 10px;
+        }
+
+        &-ellipsis {
+            margin-left: auto;
+        }
+    }
+
+    &__content {
+        flex: 1;
+        overflow: auto;
+    }
+
+    &__footer {
+        border-top: 1px solid vars.$border-grey;
+        padding-top: 10px;
+    }
+}

@@ -1,0 +1,39 @@
+<div class="chat-window">
+    <header class="chat-window__header">
+        <img class="chat-window__header-avatar" src={{chat.avatar}} alt="Иконка чата"></image>
+        <span class="chat-window__header-name">{{chat.name}}</span>
+        <div class="chat-window__header-ellipsis">
+            {{{ ContextMenu className=userSettings.className icon=userSettings.icon items=userSettings.items }}}
+        </div>
+    </header>
+    <div class="chat-window__content">
+        {{{ MessageList messageList=messageList }}}
+    </div>
+    <footer class="chat-window__footer">
+        {{{ MessageInput }}}
+    </footer>
+
+    {{#with modalConfigs.addUser}}
+        {{#if showModal}}
+            {{{ Modal title="Добавить пользователя"
+                content=content
+                buttonLabel="Добавить"
+                onClick=onClose
+                onSubmit=onSubmit
+                ref="addUser"
+            }}}
+        {{/if}}
+    {{/with}}
+
+    {{#with modalConfigs.deleteUser}}
+        {{#if showModal}}
+            {{{ Modal title="Удалить пользователя"
+                content=content
+                buttonLabel="Удалить"
+                onClick=onClose
+                onSubmit=onSubmit
+                ref="deleteUser"
+            }}}
+        {{/if}}
+    {{/with}}
+</div>

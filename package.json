@@ -8,19 +8,29 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build --emptyOutDir",
+    "build": "npm run lint && vite build --emptyOutDir",
     "server": "node server.js",
-    "start": "npm run build && npm run server"
+    "start": "npm run build && npm run server",
+    "eslint": "eslint . --ext .ts",
+    "stylelint": "stylelint src/**/*.scss",
+    "tslint": "tsc --noEmit",
+    "lint": "npm run eslint && npm run stylelint && npm run tslint"
   },
   "devDependencies": {
-    "glob": "^10.3.10",
+    "@types/uuid": "^9.0.8",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
     "sass": "^1.70.0",
-    "typescript": "^5.2.2",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "typescript": "^5.3.3",
     "vite": "^5.0.8",
     "vite-plugin-handlebars": "^2.0.0"
   },
   "dependencies": {
     "express": "^4.18.2",
-    "handlebars": "^4.7.8"
+    "handlebars": "^4.7.8",
+    "uuid": "^9.0.1"
   }
 }

@@ -1,0 +1,57 @@
+@use '../../styles/variables' as vars;
+
+.message {
+    background-color: vars.$section-grey;
+    border-radius: 0 12px 12px;
+    float: left;
+    height: auto;
+    max-width: 75%;
+    min-width: 40px;
+    padding: 14px 12px;
+    width: auto;
+
+    &-author {
+        background-color: vars.$hover-blue;
+        border-radius: 12px 12px 0;
+        float: right;
+    }
+
+    &__content {
+        font-size: 12px;
+    }
+
+    &__text {
+        padding-bottom: 4px;
+    }
+
+    &__time {
+        display: flex;
+        font-size: 9px;
+        justify-content: flex-end;
+
+        span {
+            color: vars.$label-grey;
+        }
+
+        &-author {
+            position: relative;
+
+            span {
+                color: vars.$base-blue;
+            }
+        }
+
+        &-read {
+            &::before {
+                background-image: url('../../assets/msg_read.svg');
+                background-repeat: no-repeat;
+                content: "";
+                height: 20px;
+                position: absolute;
+                right: 30px;
+                top: 3px;
+                width: 10px;
+            }
+        }
+    }
+}

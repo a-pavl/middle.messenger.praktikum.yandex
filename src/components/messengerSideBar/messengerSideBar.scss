@@ -1,0 +1,28 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/buttons';
+
+.side-bar {
+    background-color: vars.$section-grey;
+    box-sizing: border-box;
+    height: 100%;
+
+    &__header {
+        border-bottom: 1px solid vars.$border-grey;
+        padding: 0 10px 15px;
+        
+        &-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-top: 15px;
+        }
+
+        &-addChatAction {
+            padding-left: 10px;
+        }
+
+        &-search {
+            margin-top: 10px;
+        }
+    }
+}

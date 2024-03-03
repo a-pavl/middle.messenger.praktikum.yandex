@@ -1,0 +1,7 @@
+<ul class="chat-card-list">
+    {{#each chatList as |chatCard|}}
+        <li class="chat-card-list__element">
+            {{{ ChatCard chat=chatCard.chat lastMessage=chatCard.lastMessage }}}
+        </li>
+    {{/each}}
+</ul>

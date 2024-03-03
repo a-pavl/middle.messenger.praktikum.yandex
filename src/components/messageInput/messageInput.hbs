@@ -1,0 +1,19 @@
+<div class="message-input">
+    <div class="message-input__attachFile">
+        {{{ ContextMenu className=messageAttachments.className icon=messageAttachments.icon items=messageAttachments.items }}}
+    </div>
+    {{{ InputField name="message" type="text"
+        className="message-input__input"
+        autocomplete="off"
+        placeholder="Сообщение"
+        showError=false
+        validate=validationRules.message
+        ref="message"
+    }}}
+    <div class="message-input__confirmBtn">
+        {{{ Input name="sendMessage" type="image"
+            src=icon
+            onClick=onSend
+        }}}
+    </div>
+</div>

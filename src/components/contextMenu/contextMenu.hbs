@@ -1,0 +1,14 @@
+<div class="context-menu">
+    <div class="context-menu__icon">
+        <img src={{icon}} alt="Контекстное меню">
+    </div>
+    <div class="context-menu__list {{#if className}}{{className}}{{/if}}">
+        <ul>
+            {{#each items as |item|}}
+                <li>
+                    {{{ ContextMenuItem icon=item.icon text=item.text onClick=item.onClick }}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

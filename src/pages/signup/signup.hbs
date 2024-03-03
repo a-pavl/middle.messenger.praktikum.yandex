@@ -1,0 +1,87 @@
+<div class="content-container">
+    <form class="form">
+        <div class="form__header">
+            <div class="form__header-title">Регистрация</div>
+        </div>
+        <div class="form__content">
+            <div class="form__element">
+                {{{ Label label="Почта" name="email"
+                    className="form__element-label"
+                }}}
+                {{{ InputField name="email" type="text"
+                    className="form__element-input"
+                    validate=validationRules.email
+                    ref="email"
+                }}}
+            </div>
+            <div class="form__element">
+                {{{ Label label="Логин" name="login"
+                    className="form__element-label"
+                }}}
+                {{{ InputField name="login" type="text"
+                    className="form__element-input"
+                    validate=validationRules.login
+                    ref="login"
+                }}}
+            </div>
+            <div class="form__element">
+                {{{ Label label="Имя" name="first_name"
+                    className="form__element-label"
+                }}}
+                {{{ InputField name="first_name" type="text"
+                    className="form__element-input"
+                    validate=validationRules.name
+                    ref="first_name"
+                }}}
+            </div>
+            <div class="form__element">
+                {{{ Label label="Фамилия" name="second_name"
+                    className="form__element-label"
+                }}}
+                {{{ InputField name="second_name" type="text"
+                    className="form__element-input"
+                    validate=validationRules.name
+                    ref="second_name"
+                }}}
+            </div>
+            <div class="form__element">
+                {{{ Label label="Телефон" name="phone"
+                    className="form__element-label"
+                }}}
+                {{{ InputField name="phone" type="tel"
+                    className="form__element-input"
+                    validate=validationRules.phone
+                    ref="phone"
+                }}}
+            </div>
+            <div class="form__element">
+                {{{ Label label="Пароль" name="password"
+                    className="form__element-label"
+                }}}
+                {{{ InputField name="password" type="password"
+                    className="form__element-input"
+                    validate=validationRules.password
+                    ref="password"
+                }}}
+            </div>
+            <div class="form__element">
+                {{{ Label label="Пароль (ещё раз)" name="password_check"
+                    className="form__element-label"
+                }}}
+                {{{ InputField name="password_check" type="password"
+                    className="form__element-input"
+                    validate=validationRules.password
+                    ref="password_check"
+                }}}
+            </div>
+        </div>
+        <div class="form__footer">
+            <div class="form__element">
+                {{{ Button label="Зарегистрироваться" className="confirm-button" onClick=onSubmit }}}
+            </div>
+            <div class="form__element">
+                {{{ Button label="Войти" className="redirect-button" onClick=onRedirect }}}
+            </div>
+        </div>
+    </form>   
+</div>

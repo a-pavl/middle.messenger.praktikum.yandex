@@ -1,5 +1,13 @@
 # Messenger Web Application
-Учебный проект по созданию веб-мессенджера<br><br>
+Учебный проект по созданию веб-мессенджера<br>
+
+Втечение спринта 2 был реализован компонентный подход при построении приложения.
+Добавлена основная страница мессенджера - страница для работы с чатами.
+
+Использовались следующие инструменты:
+- TypeScript
+- ESLint
+- Stylelint
 
 ## Installation
 
@@ -8,11 +16,15 @@
 ```bash
 npm install
 ```
-
 Команда для запуска проекта в режиме разработки:
 
 ```bash
 npm run dev
+```
+Команда для линтинга:
+
+```bash
+npm run lint
 ```
 Команда для сборки и запуска проекта:
 
@@ -27,12 +39,5 @@ Cсылка на шаблон [Figma](https://www.figma.com/file/qQvGNXLFQOs0kRQ
 
 ## Navigation
 
-Страницы приложения
-- [Чат (на текущий момент - страница-заглушка)](https://deploy--bright-granita-b4b21a.netlify.app/)
-- [Профиль пользователя](https://deploy--bright-granita-b4b21a.netlify.app/pages/profile/profile)
-- [Профиль - Изменение данных пользователя](https://bright-granita-b4b21a.netlify.app/pages/profile/edit/data.html)
-- [Профиль - Изменение пароля](https://bright-granita-b4b21a.netlify.app/pages/profile/edit/password.html)
-- [Авторизация](https://deploy--bright-granita-b4b21a.netlify.app/pages/login/login)
-- [Регистрация](https://deploy--bright-granita-b4b21a.netlify.app/pages/signin/signin)
-- [Ошибка 404](https://deploy--bright-granita-b4b21a.netlify.app/pages/errors/404)
-- [Ошибка 500](https://deploy--bright-granita-b4b21a.netlify.app/pages/errors/500)
+[Главная страница приложения (мессенджер)](https://deploy--bright-granita-b4b21a.netlify.app/)<br>
+Доступ к остальным страницам осуществляется навигацией по приложения
