@@ -1,7 +1,8 @@
-import { Block, navigation } from '../../../lib';
+import { Block } from '../../../lib';
 import { IErrorPageProps } from '../types';
 
 import badRequest from '../error.hbs?raw';
+import { Routes } from '../../../types';
 
 export class BadRequest extends Block {
   constructor() {
@@ -11,7 +12,7 @@ export class BadRequest extends Block {
         text: 'Мы уже фиксим',
       },
       onRedirect: () => {
-        navigation('notFound');
+        window.router.go(Routes.Messenger);
       },
     };
 

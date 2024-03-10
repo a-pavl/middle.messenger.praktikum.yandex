@@ -1,7 +1,8 @@
 import './styles/base.scss';
 import Handlebars from 'handlebars';
 import * as Components from './components';
-import { registerComponent, navigation } from './lib';
+import { registerComponent, Router } from './lib';
+import { useRouter } from './middleware';
 
 Handlebars.registerHelper('add_quotes', (variable) => `"${variable}"`);
 
@@ -29,6 +30,10 @@ registerComponent('MessageInput', Components.MessageInput);
 registerComponent('ChatWindow', Components.ChatWindow);
 registerComponent('MessengerSideBar', Components.MessengerSideBar);
 
-document.addEventListener('DOMContentLoaded', () => {
-  navigation('messenger');
-});
+useRouter();
+
+declare global {
+  interface Window {
+    router: Router;
+  }
+}

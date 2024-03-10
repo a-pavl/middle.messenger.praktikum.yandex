@@ -39,3 +39,15 @@ export interface IMessage {
   isAuthorMessage?: boolean;
   isRead?: boolean;
 }
+
+export enum Routes {
+  BadRequest = "/bad-request",
+  Home = "/",
+  Login = "/login",
+  Messenger = "/messenger",
+  NotFound = "//not-found",
+  Profile = "/profile",
+  ProfileData = Profile + "/data",
+  ProfilePassword = Profile + "/password",
+  SignUp = "/sign-up",
+}

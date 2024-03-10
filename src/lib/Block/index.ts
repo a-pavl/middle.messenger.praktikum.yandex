@@ -173,7 +173,7 @@ export class Block {
   }
 
   getContent() {
-    return this.element;
+    return this.element as HTMLElement;
   }
 
   _makePropsProxy(props: IProxyProps, self: Block) {
@@ -208,5 +208,14 @@ export class Block {
     Object.keys(events).forEach((eventName) => {
       this._element?.removeEventListener(eventName, events[eventName]);
     });
+  }
+
+  show(query: string) {
+    const root = document.querySelector(query);
+    root!.append(this.getContent());
+  }
+
+  remove() {
+    this.getContent().remove();
   }
 }

@@ -1,4 +1,4 @@
-import { Block, navigation } from '../../lib';
+import { Block } from '../../lib';
 import { InputField } from '../../components/inputField';
 import { ISignUpPageProps } from './types';
 import {
@@ -6,6 +6,7 @@ import {
 } from '../../lib/Validation';
 
 import signup from './signup.hbs?raw';
+import { Routes } from '../../types';
 
 export class Signup extends Block {
   constructor() {
@@ -18,7 +19,7 @@ export class Signup extends Block {
         password: passwordValidation,
       },
       onRedirect: () => {
-        navigation('login');
+        window.router.go(Routes.Login);
       },
       onSubmit: (event) => {
         event.preventDefault();
@@ -37,7 +38,7 @@ export class Signup extends Block {
         });
 
         if (email && login && first_name && second_name && phone && password && password_check) {
-          navigation('messenger');
+          window.router.go(Routes.Messenger);
         }
       },
     };

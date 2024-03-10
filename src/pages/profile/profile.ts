@@ -1,10 +1,11 @@
-import { Block, navigation } from '../../lib';
+import { Block } from '../../lib';
 import { IProfilePageProps } from './types';
 
 import profile from './profile.hbs?raw';
 
 import arrowbackImg from '../../assets/arrow_back.svg';
 import defaultAvatarImg from '../../assets/default_avatar.svg';
+import { Routes } from '../../types';
 
 export class Profile extends Block {
   constructor() {
@@ -18,16 +19,16 @@ export class Profile extends Block {
       displayName: 'Иван',
       phone: '+79099673030',
       onRedirectToMainPage: () => {
-        navigation('messenger');
+        window.router.go(Routes.Messenger);
       },
       onRedirectToLoginPage: () => {
-        navigation('login');
+        window.router.go(Routes.Login);
       },
       onRedirectToProfileEditData: () => {
-        navigation('profileEditData');
+        window.router.go(Routes.ProfileData);
       },
       onRedirectToProfileEditPassword: () => {
-        navigation('profileEditPassword');
+        window.router.go(Routes.ProfilePassword);
       },
     };
 

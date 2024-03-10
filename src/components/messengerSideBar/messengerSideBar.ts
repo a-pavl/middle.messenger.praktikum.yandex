@@ -1,15 +1,16 @@
-import { Block, navigation } from '../../lib';
+import { Block } from '../../lib';
 import { ChatSearch } from '../chatSearch';
 import { ChatCardList } from '../chatCardList';
 import { IMessengerSideBar } from './types';
 import { IChatCard } from '../chatCard/types';
 
 import messengerSideBar from './messengerSideBar.hbs?raw';
+import { Routes } from '../../types';
 
 export class MessengerSideBar extends Block {
   constructor(props: IMessengerSideBar) {
     props.onRedirectToProfile = () => {
-      navigation('profile');
+      window.router.go(Routes.Profile);
     };
     props.onInput = () => this.searchChats();
 

@@ -1,4 +1,4 @@
-import { Block, navigation } from '../../../../lib';
+import { Block } from '../../../../lib';
 import { InputField } from '../../../../components/inputField';
 import { IProfileEditPasswordPageProps } from './types';
 import { passwordValidation } from '../../../../lib/Validation';
@@ -7,6 +7,7 @@ import password from './password.hbs?raw';
 
 import arrowbackImg from '../../../../assets/arrow_back.svg';
 import defaultAvatarImg from '../../../../assets/default_avatar.svg';
+import { Routes } from '../../../../types';
 
 export class ProfileEditPassword extends Block {
   constructor() {
@@ -17,7 +18,7 @@ export class ProfileEditPassword extends Block {
         password: passwordValidation,
       },
       onRedirect: () => {
-        navigation('profile');
+        window.router.go(Routes.Profile);
       },
       onSubmit: (event) => {
         event.preventDefault();
@@ -30,7 +31,7 @@ export class ProfileEditPassword extends Block {
         console.log({ oldPassword, newPassword, newPasswordCheck });
 
         if (oldPassword && newPassword && newPasswordCheck) {
-          navigation('profile');
+          window.router.go(Routes.Profile);
         }
       },
     };

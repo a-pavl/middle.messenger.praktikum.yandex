@@ -1,4 +1,4 @@
-import { Block, navigation } from '../../../../lib';
+import { Block } from '../../../../lib';
 import { InputField } from '../../../../components/inputField';
 import { IProfileEditDataPageProps } from './types';
 import {
@@ -9,6 +9,7 @@ import arrowbackImg from '../../../../assets/arrow_back.svg';
 import defaultAvatarImg from '../../../../assets/default_avatar.svg';
 
 import userData from './userData.hbs?raw';
+import { Routes } from '../../../../types';
 
 export class ProfileEditData extends Block {
   constructor() {
@@ -30,7 +31,7 @@ export class ProfileEditData extends Block {
         phone: phoneValidation,
       },
       onRedirect: () => {
-        navigation('profile');
+        window.router.go(Routes.Profile);
       },
       onSubmit: (event) => {
         event.preventDefault();
@@ -48,7 +49,7 @@ export class ProfileEditData extends Block {
         });
 
         if (email && login && first_name && second_name && display_name && phone) {
-          navigation('profile');
+          window.router.go(Routes.Profile);
         }
       },
     };
