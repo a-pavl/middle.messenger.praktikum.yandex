@@ -1,15 +1,33 @@
-import { Block } from '../../lib';
+import { Block, connectToStore } from '../../lib';
 import { IChatWindow } from './types';
 import { IContextMenuItem } from '../contextMenuItem/types';
 
 import ellipsisImg from '../../assets/ellipsis.svg';
 import addUserImg from '../../assets/add_user.svg';
 import deleteUserImg from '../../assets/delete_user.svg';
+import defaultAvatarImg from '@/assets/default_avatar.svg';
 
-import chatWindow from './chatWindow.hbs?raw';
+import chatWindowTemplate from './chatWindow.hbs?raw';
+import { searchUserByLogin } from '@/services/user';
+import { addUserToChat, deleteUsersFromChat, updateChatAvatar } from '@/services/chat';
+import { TAddDeleteUserInput } from '@/api/chat/types';
+import { RESOURCES_HOST } from '@/config/auth';
 
-export class ChatWindow extends Block {
+class ChatWindow extends Block {
   constructor(props: IChatWindow) {
+    if (props.chat) {
+      if (!props.chat.avatar) {
+        props.chat.avatar = defaultAvatarImg;
+      } else {
+        props.chat.avatar = `${RESOURCES_HOST}${props.chat.avatar}`;
+      }
+    }
+
+    props.onChatIconClick = (event) => {
+      event.preventDefault();
+      this.switchModalVisibility(true, 'editChatIcon');
+    }
+    
     const userSettingsItems: Array<IContextMenuItem> = [
       { icon: addUserImg, text: 'Добавить пользователя', onClick: () => this.switchModalVisibility(true, 'addUser') },
       { icon: deleteUserImg, text: 'Удалить пользователя', onClick: () => this.switchModalVisibility(true, 'deleteUser') },
@@ -34,6 +52,12 @@ export class ChatWindow extends Block {
         onClose: (event) => this.closeModal(event, 'deleteUser'),
         onSubmit: (event) => this.deleteUser(event),
       },
+      editChatIcon: {
+        content: 'FileInputContent',
+        showModal: false,
+        onClose: (event) => this.closeModal(event, 'editChatIcon'),
+        onSubmit: (event) => this.editChatIcon(event),
+      },
     };
 
     super(props);
@@ -46,19 +70,60 @@ export class ChatWindow extends Block {
   addUser(event: Event) {
     event.preventDefault();
 
-    const inputValue = (this.getRefs().addUser.getRefs().input.element as HTMLInputElement).value.trim();
-    console.log(`user ${inputValue} added`);
+    const login = (this.getRefs().addUser.getRefs().input.element as HTMLInputElement).value.trim();
+    const currentChatId = window.store.getState().currentChatId;
 
-    this.switchModalVisibility(false, 'addUser');
+    searchUserByLogin(login)
+      .then(users => {
+        addUserToChat({
+          users: users.map((u) => u.id),
+          chatId: currentChatId
+        } as TAddDeleteUserInput)
+          .then(() => this.switchModalVisibility(false, 'addUser'))
+          .catch((error) => {
+              console.error('add users to chat:', error)
+          });
+      })
+      .catch((error) => {
+        console.error('search users:', error)
+    });
   }
 
   deleteUser(event: Event) {
     event.preventDefault();
 
-    const inputValue = (this.getRefs().deleteUser.getRefs().input.element as HTMLInputElement).value.trim();
-    console.log(`user ${inputValue} deleted`);
+    const login = (this.getRefs().addUser.getRefs().input.element as HTMLInputElement).value.trim();
+    const currentChatId = window.store.getState().currentChatId;
 
-    this.switchModalVisibility(false, 'deleteUser');
+    searchUserByLogin(login)
+      .then(users => {
+        deleteUsersFromChat({
+          users: users.map((u) => u.id),
+          chatId: currentChatId
+        } as TAddDeleteUserInput)
+          .then(() => this.switchModalVisibility(false, 'deleteUser'))
+          .catch((error) => {
+            console.error('remove users from chat:', error);
+          });
+      })
+      .catch((error) => {
+        console.error('search users:', error)
+    });
+  }
+
+  editChatIcon(event: Event) {
+    event.preventDefault();
+
+    const currentChatId = window.store.getState().currentChatId;
+    if (!currentChatId) return;
+
+    const data = new FormData();
+    const chatIconFile = (this.getRefs().editChatIcon.getRefs().fileInput.element as HTMLInputElement).files![0];
+    data.append("chatIcon", chatIconFile);
+
+    updateChatAvatar(data, currentChatId)
+      .then(() => console.log('chat icon updated'))
+      .catch((error) => console.error('change chat icon:', error));
   }
 
   closeModal(event: Event, modalName: string) {
@@ -80,6 +145,9 @@ export class ChatWindow extends Block {
   }
 
   render() {
-    return chatWindow;
+    return chatWindowTemplate;
   }
 }
+
+const ChatWindowCmp = connectToStore(({ chats }) => ({ chats }))(ChatWindow);
+export { ChatWindowCmp };

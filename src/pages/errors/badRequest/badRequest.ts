@@ -1,7 +1,7 @@
 import { Block } from '../../../lib';
 import { IErrorPageProps } from '../types';
 
-import badRequest from '../error.hbs?raw';
+import errorTemplate from '../error.hbs?raw';
 import { Routes } from '../../../types';
 
 export class BadRequest extends Block {
@@ -20,6 +20,6 @@ export class BadRequest extends Block {
   }
 
   render() {
-    return badRequest;
+    return errorTemplate;
   }
 }

@@ -1,39 +1,57 @@
-<div class="chat-window">
-    <header class="chat-window__header">
-        <img class="chat-window__header-avatar" src={{chat.avatar}} alt="Иконка чата"></image>
-        <span class="chat-window__header-name">{{chat.name}}</span>
-        <div class="chat-window__header-ellipsis">
-            {{{ ContextMenu className=userSettings.className icon=userSettings.icon items=userSettings.items }}}
+{{#if chat}}
+    <div class="chat-window">
+        <header class="chat-window__header">
+            {{{ Label image=chat.avatar className="chat-window__header-avatar" onClick=onChatIconClick }}}
+            <span class="chat-window__header-name">{{chat.title}}</span>
+            <div class="chat-window__header-ellipsis">
+                {{{ ContextMenu className=userSettings.className icon=userSettings.icon items=userSettings.items }}}
+            </div>
+        </header>
+        <div class="chat-window__content">
+            {{{ MessageList messages=chat.messages }}}
         </div>
-    </header>
-    <div class="chat-window__content">
-        {{{ MessageList messageList=messageList }}}
+        <footer class="chat-window__footer">
+            {{{ MessageInput }}}
+        </footer>
+
+        {{#with modalConfigs.addUser}}
+            {{#if showModal}}
+                {{{ Modal title="Добавить пользователя"
+                    content=content
+                    buttonLabel="Добавить"
+                    onClick=onClose
+                    onSubmit=onSubmit
+                    ref="addUser"
+                }}}
+            {{/if}}
+        {{/with}}
+
+        {{#with modalConfigs.deleteUser}}
+            {{#if showModal}}
+                {{{ Modal title="Удалить пользователя"
+                    content=content
+                    buttonLabel="Удалить"
+                    onClick=onClose
+                    onSubmit=onSubmit
+                    ref="deleteUser"
+                }}}
+            {{/if}}
+        {{/with}}
+
+        {{#with modalConfigs.editChatIcon}}
+            {{#if showModal}}
+                {{{ Modal title="Загрузить файл"
+                    content=content
+                    buttonLabel="Поменять"
+                    onClick=onClose
+                    onSubmit=onSubmit
+                    ref="editChatIcon"
+                }}}
+            {{/if}}
+        {{/with}}
     </div>
-    <footer class="chat-window__footer">
-        {{{ MessageInput }}}
-    </footer>
-
-    {{#with modalConfigs.addUser}}
-        {{#if showModal}}
-            {{{ Modal title="Добавить пользователя"
-                content=content
-                buttonLabel="Добавить"
-                onClick=onClose
-                onSubmit=onSubmit
-                ref="addUser"
-            }}}
-        {{/if}}
-    {{/with}}
-
-    {{#with modalConfigs.deleteUser}}
-        {{#if showModal}}
-            {{{ Modal title="Удалить пользователя"
-                content=content
-                buttonLabel="Удалить"
-                onClick=onClose
-                onSubmit=onSubmit
-                ref="deleteUser"
-            }}}
-        {{/if}}
-    {{/with}}
-</div>
+{{else}}
+    <div class="chat-window__placeholder">
+        <span>Choose a chat to start messaging</span>
+    </div>
+{{/if}}

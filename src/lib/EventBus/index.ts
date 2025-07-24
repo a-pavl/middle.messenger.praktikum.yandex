@@ -19,7 +19,7 @@ export class EventBus implements IEventBus {
 
   off: Off = (event, callback) => {
     if (!this.listeners[event]) {
-      throw new Error(`Нет события: ${event}`);
+      return;
     }
 
     this.listeners[event] = this.listeners[event]!.filter(
@@ -29,7 +29,7 @@ export class EventBus implements IEventBus {
 
   emit: Emit = (event, ...args) => {
     if (!this.listeners[event]) {
-      throw new Error(`Нет события: ${event}`);
+      return;
     }
 
     this.listeners[event]!.forEach((listener) => {

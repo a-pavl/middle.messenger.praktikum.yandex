@@ -1,7 +1,7 @@
 import { Block } from '../../lib';
 import { IChatCardList } from './types';
 
-import chatCardList from './chatCardList.hbs?raw';
+import chatCardListTemplate from './chatCardList.hbs?raw';
 
 export class ChatCardList extends Block {
   constructor(props: IChatCardList) {
@@ -13,6 +13,6 @@ export class ChatCardList extends Block {
   }
 
   render() {
-    return chatCardList;
+    return chatCardListTemplate;
   }
 }

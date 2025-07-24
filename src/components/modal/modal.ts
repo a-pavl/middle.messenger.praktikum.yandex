@@ -1,6 +1,6 @@
 import { Block } from '../../lib';
 import { IModalProps } from './types';
-import modal from './modal.hbs?raw';
+import modalTemplate from './modal.hbs?raw';
 
 export class Modal extends Block {
   constructor(props: IModalProps) {
@@ -17,6 +17,6 @@ export class Modal extends Block {
   }
 
   render() {
-    return modal;
+    return modalTemplate;
   }
 }

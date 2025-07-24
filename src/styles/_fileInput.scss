@@ -1,0 +1,16 @@
+@use './variables' as vars;
+
+.file-input {
+    &__label {
+        color: vars.$base-blue;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__input {
+        display: none;
+    }
+}

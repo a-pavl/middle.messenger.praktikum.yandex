@@ -1,7 +1,7 @@
 import { Block } from '../../lib/Block';
 import { IInputFieldProps } from './types';
 
-import inputField from './inputField.hbs?raw';
+import inputFieldTemplate from './inputField.hbs?raw';
 
 export class InputField extends Block {
   constructor(props: IInputFieldProps) {
@@ -69,6 +69,6 @@ export class InputField extends Block {
   }
 
   render() {
-    return inputField;
+    return inputFieldTemplate;
   }
 }

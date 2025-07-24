@@ -8,10 +8,8 @@ export enum METHODS {
 export type Options = {
   method?: METHODS.GET | METHODS.POST | METHODS.PUT | METHODS.DELETE,
   headers?: Record<string, string>,
-  data?: { [key: string]: string },
+  data?: object | FormData;
   timeout?: number,
   retries?: number,
   params?: object,
 };
-
-export type HttpRequest = (url: string, options?: Options) => Promise<unknown>;

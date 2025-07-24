@@ -66,4 +66,8 @@ export class Router {
   getRoute(pathname: string) {
     return this.routes.find(route => route.match(pathname));
   }
+
+  currentRoutePathName() {
+    return this._currentRoute ? this._currentRoute._pathname : null;
+  }
 }

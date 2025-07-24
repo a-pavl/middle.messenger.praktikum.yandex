@@ -1,8 +1,7 @@
-import { IChatCard } from '../../components/chatCard/types';
-import { IChat, IMessage, IProps } from '../../types';
+import { TChat } from '@/types/chat';
+import { IProps } from '../../types';
 
 export interface IMessengerPageProps extends IProps {
-  chatList: Array<IChatCard>,
-  selectedChat: IChat,
-  messageList: Array<IMessage>,
+  selectedChatId: number | null,
+  chats: TChat[] | null,
 }

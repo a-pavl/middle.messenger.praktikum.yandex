@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { join } from "path";
+import { join, resolve } from "path";
 
 export default defineConfig({
     root: join(__dirname, "src"),
@@ -11,5 +11,10 @@ export default defineConfig({
                 dir: join(__dirname, "dist"),
             }
         }
-    }
+    },
+    resolve: {
+        alias: {
+            "@": resolve(__dirname, "./src"),
+        },
+    },
 })

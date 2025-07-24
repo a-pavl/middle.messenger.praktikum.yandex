@@ -1,7 +1,7 @@
 import { Block } from '../../lib';
 import { IContextMenu } from './types';
 
-import contextMenu from './contextMenu.hbs?raw';
+import contextMenuTemplate from './contextMenu.hbs?raw';
 
 export class ContextMenu extends Block {
   constructor(props: IContextMenu) {
@@ -9,6 +9,6 @@ export class ContextMenu extends Block {
   }
 
   render() {
-    return contextMenu;
+    return contextMenuTemplate;
   }
 }

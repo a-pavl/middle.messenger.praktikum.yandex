@@ -10,7 +10,8 @@ import fileImg from '../../assets/file.svg';
 import locationImg from '../../assets/location.svg';
 import mediaImg from '../../assets/media.svg';
 
-import messageInput from './messageInput.hbs?raw';
+import messageInputTemplate from './messageInput.hbs?raw';
+import { sendMessage } from '@/services/message';
 
 export class MessageInput extends Block {
   constructor() {
@@ -49,13 +50,13 @@ export class MessageInput extends Block {
       console.log({ validationMessage });
     }
 
-    // mock form submit
-    console.log({ message });
-
-    messageComponent.clearInput();
+    if (message) {
+      sendMessage(message);
+      messageComponent.clearInput();
+    }
   }
 
   render() {
-    return messageInput;
+    return messageInputTemplate;
   }
 }

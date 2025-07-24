@@ -1,7 +1,7 @@
 import { Block } from '../../../lib';
 import { IErrorPageProps } from '../types';
 
-import notFound from '../error.hbs?raw';
+import errorTemplate from '../error.hbs?raw';
 import { Routes } from '../../../types';
 
 export class NotFound extends Block {
@@ -20,6 +20,6 @@ export class NotFound extends Block {
   }
 
   render() {
-    return notFound;
+    return errorTemplate;
   }
 }

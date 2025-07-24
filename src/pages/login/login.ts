@@ -3,8 +3,10 @@ import { ILoginPageProps } from './types';
 import { loginValidation, passwordValidation } from '../../lib/Validation';
 import { InputField } from '../../components/inputField';
 
-import login from './login.hbs?raw';
+import loginTemplate from './login.hbs?raw';
 import { Routes } from '../../types';
+import { signin } from '@/services/auth';
+import { TSignInInput } from '@/api/auth/types';
 
 export class Login extends Block {
   constructor() {
@@ -22,11 +24,16 @@ export class Login extends Block {
         const login = (this.getRefs().login as InputField).value();
         const password = (this.getRefs().password as InputField).value();
 
-        // mock form submit
-        console.log({ login, password });
-
         if (login && password) {
-          window.router.go(Routes.Messenger);
+          const credentials: TSignInInput = {login, password};
+
+          signin(credentials)
+            .then(() => {
+              window.router.go(Routes.Messenger);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
         }
       },
     };
@@ -35,6 +42,6 @@ export class Login extends Block {
   }
 
   render() {
-    return login;
+    return loginTemplate;
   }
 }

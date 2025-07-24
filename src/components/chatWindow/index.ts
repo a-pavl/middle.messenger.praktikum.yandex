@@ -1,3 +1,3 @@
 import './chatWindow.scss';
 
-export { ChatWindow } from './chatWindow';
+export { ChatWindowCmp as ChatWindow } from './chatWindow';

@@ -2,6 +2,10 @@
     <div class="side-bar__header">
         <div class="side-bar__header-actions">
             <div class="side-bar__header-addChatAction">
+                {{{ Input name="addChatButton" type="image"
+                    src=createChatIcon
+                    onClick=onAddChat
+                }}}
             </div>
             <div>
                 {{{ Button label="Profile >" className="action-button" onClick=onRedirectToProfile }}}
@@ -16,6 +20,18 @@
         </div>
     </div>
     <div class="side-bar__content">
-        {{{ ChatCardList chatList=chatList ref="chatCardList" }}}
+        {{{ ChatCardList chatList=chats ref="chatCardList" }}}
     </div>
+
+    {{#with modalConfigs.addChat}}
+        {{#if showModal}}
+            {{{ Modal title="Добавить чат"
+                content=content
+                buttonLabel="Добавить"
+                onClick=onClose
+                onSubmit=onSubmit
+                ref="addChat"
+            }}}
+        {{/if}}
+    {{/with}}
 </div>

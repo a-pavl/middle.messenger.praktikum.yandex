@@ -3,5 +3,6 @@
         class={{className}}
     {{/if}}
 >
-    {{label}}
+    {{#if image}}<img src={{image}}>{{/if}}
+    {{#if label}}{{label}}{{/if}}
 </label>

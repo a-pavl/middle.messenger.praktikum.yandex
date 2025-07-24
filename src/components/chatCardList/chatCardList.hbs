@@ -1,7 +1,7 @@
 <ul class="chat-card-list">
-    {{#each chatList as |chatCard|}}
+    {{#each chatList as |chat|}}
         <li class="chat-card-list__element">
-            {{{ ChatCard chat=chatCard.chat lastMessage=chatCard.lastMessage }}}
+            {{{ ChatCard chat=chat }}}
         </li>
     {{/each}}
 </ul>

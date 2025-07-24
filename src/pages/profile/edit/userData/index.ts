@@ -1,3 +1,3 @@
 import '../profile_edit.scss';
 
-export { ProfileEditData } from './userData';
+export { ProfileEditDataCmp as ProfileEditData } from './userData';

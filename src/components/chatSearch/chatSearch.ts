@@ -1,7 +1,7 @@
 import { Block } from '../../lib';
 import { IChatSearch } from './types';
 
-import chatSearch from './chatSearch.hbs?raw';
+import chatSearchTemplate from './chatSearch.hbs?raw';
 
 export class ChatSearch extends Block {
   constructor(props: IChatSearch) {
@@ -13,6 +13,6 @@ export class ChatSearch extends Block {
   }
 
   render() {
-    return chatSearch;
+    return chatSearchTemplate;
   }
 }

@@ -1,7 +1,10 @@
 import { IProps } from '../../types';
 
 export interface ILabelProps extends IProps {
-  label: string,
+  label?: string,
   name?: string,
   className?: string,
+  image?: string,
+
+  onClick?: () => void,
 }

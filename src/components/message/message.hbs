@@ -1,9 +1,9 @@
 {{#with message}}
-    <li class="message{{#if isAuthorMessage}} message-author{{/if}}">
+    <li class="message{{#if is_author_message}} message-author{{/if}}">
         <article class="message__content">
-            <div class="message__text">{{text}}</div>
-            <div class="message__time{{#if isAuthorMessage}} message__time-author{{/if}}{{#if isRead}} message__time-read{{/if}}">
-                <span>{{timeCreated}}</span>
+            <div class="message__text">{{content}}</div>
+            <div class="message__time{{#if is_author_message}} message__time-author{{/if}}{{#if is_read}} message__time-read{{/if}}">
+                <span>{{timeFormatted}}</span>
             </div>
         </article>
     </li>

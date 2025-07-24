@@ -1,3 +1,3 @@
 import './messengerSideBar.scss';
 
-export { MessengerSideBar } from './messengerSideBar';
+export { MessengerSideBarCmp as MessengerSideBar } from './messengerSideBar';

@@ -1,9 +1,13 @@
-import { IProps } from '../../types';
-import { IChatCard } from '../chatCard/types';
+import { TChat } from '@/types/chat';
+import { IModalConfig, IProps } from '../../types';
 
 export interface IMessengerSideBar extends IProps {
-  chatList: Array<IChatCard>,
+  chats: Array<TChat>,
+  
+  modalConfigs: Record<string, IModalConfig>,
 
+  createChatIcon: string;
+  onAddChat: () => void,
   onRedirectToProfile: (e: Event) => void,
   onInput: () => void,
 }

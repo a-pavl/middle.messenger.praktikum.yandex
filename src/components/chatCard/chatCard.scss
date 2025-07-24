@@ -11,6 +11,13 @@
         width: 47px;
     }
 
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+    }
+
     &__label {
         align-items: center;
         display: flex;

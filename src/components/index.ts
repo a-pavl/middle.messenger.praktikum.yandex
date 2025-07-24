@@ -4,6 +4,7 @@ export { InputField } from './inputField';
 export { Label } from './label';
 export { Error } from './error';
 
+export { AddChatContent } from './messengerSideBar/templates';
 export { AddUserContent, DeleteUserContent } from './chatWindow/templates';
 export { Modal } from './modal';
 
@@ -20,3 +21,5 @@ export { MessageInput } from './messageInput';
 
 export { ChatWindow } from './chatWindow';
 export { MessengerSideBar } from './messengerSideBar';
+
+export { FileInputContent } from '@/pages/templates';

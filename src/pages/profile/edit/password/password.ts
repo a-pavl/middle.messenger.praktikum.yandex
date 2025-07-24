@@ -1,19 +1,22 @@
-import { Block } from '../../../../lib';
-import { InputField } from '../../../../components/inputField';
+import { Block, connectToStore } from '@/lib';
+import { InputField } from '@/components/inputField';
 import { IProfileEditPasswordPageProps } from './types';
-import { passwordValidation } from '../../../../lib/Validation';
+import { passwordValidation } from '@/lib/Validation';
 
-import password from './password.hbs?raw';
+import passwordTemplate from './password.hbs?raw';
 
-import arrowbackImg from '../../../../assets/arrow_back.svg';
-import defaultAvatarImg from '../../../../assets/default_avatar.svg';
-import { Routes } from '../../../../types';
+import arrowbackImg from '@/assets/arrow_back.svg';
+import { Routes } from '@/types';
+import { TChangePasswordInput } from '@/api/user/types';
+import { updatePassword } from '@/services/user';
 
-export class ProfileEditPassword extends Block {
+class ProfileEditPassword extends Block {
   constructor() {
     const props: IProfileEditPasswordPageProps = {
       redirectBackIcon: arrowbackImg,
-      avatar: defaultAvatarImg,
+
+      user: window.store.getState().user,
+
       validationRules: {
         password: passwordValidation,
       },
@@ -27,11 +30,19 @@ export class ProfileEditPassword extends Block {
         const newPassword = (this.getRefs().newPassword as InputField).value();
         const newPasswordCheck = (this.getRefs().newPasswordCheck as InputField).value();
 
-        // mock form submit
-        console.log({ oldPassword, newPassword, newPasswordCheck });
+        const data = {
+          oldPassword,
+          newPassword,
+        } as TChangePasswordInput;
 
         if (oldPassword && newPassword && newPasswordCheck) {
-          window.router.go(Routes.Profile);
+          updatePassword(data)
+            .then(() => {
+              window.router.go(Routes.Profile);
+            })
+            .catch((error) => {
+              console.error('change password:', error)
+            });
         }
       },
     };
@@ -40,6 +51,9 @@ export class ProfileEditPassword extends Block {
   }
 
   render() {
-    return password;
+    return passwordTemplate;
   }
 }
+
+const ProfileEditPasswordCmp = connectToStore(({ user }) => ({ user }))(ProfileEditPassword);
+export { ProfileEditPasswordCmp };

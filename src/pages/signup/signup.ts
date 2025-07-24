@@ -5,8 +5,10 @@ import {
   emailValidation, loginValidation, nameValidation, phoneValidation, passwordValidation,
 } from '../../lib/Validation';
 
-import signup from './signup.hbs?raw';
+import signupTemplate from './signup.hbs?raw';
 import { Routes } from '../../types';
+import { TUser } from '@/types/user';
+import { signup } from '@/services/auth';
 
 export class Signup extends Block {
   constructor() {
@@ -32,13 +34,16 @@ export class Signup extends Block {
         const password = (this.getRefs().password as InputField).value();
         const password_check = (this.getRefs().password_check as InputField).value();
 
-        // mock form submit
-        console.log({
-          email, login, first_name, second_name, phone, password, password_check,
-        });
-
         if (email && login && first_name && second_name && phone && password && password_check) {
-          window.router.go(Routes.Messenger);
+          const user: TUser = {email, login, first_name, second_name, phone, password};
+          
+          signup(user)
+            .then(() => {
+              window.router.go(Routes.Messenger)
+            })
+            .catch((error: Error) => {
+              console.error('signup:', error)
+            });
         }
       },
     };
@@ -47,6 +52,6 @@ export class Signup extends Block {
   }
 
   render() {
-    return signup;
+    return signupTemplate;
   }
 }

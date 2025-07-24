@@ -110,7 +110,7 @@ export class Block {
     return (oldProps !== newProps);
   }
 
-  setProps = (nextProps: IProps) => {
+  setProps = (nextProps: object) => {
     if (!nextProps) {
       return;
     }

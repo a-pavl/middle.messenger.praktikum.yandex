@@ -1,6 +1,7 @@
-import { IProps, IMessage, IChat } from '../../types';
+import { TChat } from '@/types/chat';
+import { IProps } from '../../types';
 
 export interface IChatCard extends IProps {
-  chat: IChat,
-  lastMessage?: IMessage,
+  chat: TChat,
+  showChatCounter: boolean;
 }

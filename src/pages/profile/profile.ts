@@ -1,28 +1,31 @@
-import { Block } from '../../lib';
+import { Block, connectToStore } from '../../lib';
 import { IProfilePageProps } from './types';
 
-import profile from './profile.hbs?raw';
+import profileTemplate from './profile.hbs?raw';
 
 import arrowbackImg from '../../assets/arrow_back.svg';
-import defaultAvatarImg from '../../assets/default_avatar.svg';
-import { Routes } from '../../types';
+import defaultAvatarImg from '@/assets/default_avatar.svg';
 
-export class Profile extends Block {
+import { Routes } from '../../types';
+import { logout } from '@/services/auth';
+import { RESOURCES_HOST } from '@/config/auth';
+
+class Profile extends Block {
   constructor() {
     const props: IProfilePageProps = {
       redirectBackIcon: arrowbackImg,
-      avatar: defaultAvatarImg,
-      email: 'pochta@yandex.ru',
-      login: 'ivanivanov',
-      firstName: 'Иван',
-      secondName: 'Иванов',
-      displayName: 'Иван',
-      phone: '+79099673030',
+
+      user: window.store.getState().user,
+      
+      onLogout: () => {
+        logout()
+          .then(() => {
+            window.router.go(Routes.Login);
+          })
+          .catch((error) => console.error('logout:', error));
+      },
       onRedirectToMainPage: () => {
         window.router.go(Routes.Messenger);
-      },
-      onRedirectToLoginPage: () => {
-        window.router.go(Routes.Login);
       },
       onRedirectToProfileEditData: () => {
         window.router.go(Routes.ProfileData);
@@ -32,10 +35,21 @@ export class Profile extends Block {
       },
     };
 
+    if (props.user) {
+      if (!props.user.avatar) {
+        props.user.avatar = defaultAvatarImg;
+      } else {
+        props.user.avatar = `${RESOURCES_HOST}${props.user.avatar}`;
+      }
+    }
+
     super(props);
   }
 
   render() {
-    return profile;
+    return profileTemplate;
   }
 }
+
+const ProfileCmp = connectToStore(({ user }) => ({ user }))(Profile);
+export { ProfileCmp };

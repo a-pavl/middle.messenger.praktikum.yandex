@@ -1,11 +1,13 @@
+import { TChat } from '@/types/chat';
 import {
-  IChat, IMessage, IModalConfig, IProps,
+  IModalConfig, IProps,
 } from '../../types';
 import { IContextMenu } from '../contextMenu/types';
 
 export interface IChatWindow extends IProps {
-  chat: IChat,
-  messageList: Array<IMessage>,
+  chat?: TChat,
   userSettings: IContextMenu,
   modalConfigs: Record<string, IModalConfig>,
+
+  onChatIconClick: (e: Event) => void,
 }

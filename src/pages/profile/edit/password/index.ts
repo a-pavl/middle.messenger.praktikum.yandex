@@ -1,3 +1,3 @@
 import '../profile_edit.scss';
 
-export { ProfileEditPassword } from './password';
+export { ProfileEditPasswordCmp as ProfileEditPassword } from './password';

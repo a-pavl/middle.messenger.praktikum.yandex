@@ -3,19 +3,21 @@
     <div class="card__info">
         <div class="card__label">
             <div class="card__label-name">
-                {{chat.name}}
+                {{chat.title}}
             </div>
             <div class="card__label-date">
-                {{lastMessage.dateCreated}}
+                {{chat.last_message.timeFormatted}}
             </div>
         </div>
         <div class="card__details">
             <div class="card__details-text">
-                {{lastMessage.text}}
+                {{chat.last_message.content}}
             </div>
-            <div class="card__details-counter">
-                {{chat.unreadMessages}}
-            </div>
+            {{#if showChatCounter}}
+                <div class="card__details-counter">
+                    {{chat.unread_count}}
+                </div>
+            {{/if}}
         </div>
     </div>
 </div>

@@ -1,13 +1,11 @@
-import { IForm, IProps } from '../../../../types';
+import { TUser } from '@/types/user';
+import { IForm, IModalConfig, IProps } from '@/types';
 
 export interface IProfileEditDataPageProps extends IProps, IForm {
   redirectBackIcon: string,
 
-  avatar: string,
-  email: string,
-  login: string,
-  firstName: string,
-  secondName: string,
-  displayName: string,
-  phone: string,
+  user: TUser | null,
+  modalConfigs: Record<string, IModalConfig>,
+
+  onAvatarClick: (e: Event) => void,
 }

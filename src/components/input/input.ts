@@ -1,7 +1,7 @@
 import { Block } from '../../lib/Block';
 import { IInputProps } from './types';
 
-import input from './input.hbs?raw';
+import inputTemplate from './input.hbs?raw';
 
 export class Input extends Block {
   constructor(props: IInputProps) {
@@ -22,6 +22,6 @@ export class Input extends Block {
   }
 
   render() {
-    return input;
+    return inputTemplate;
   }
 }

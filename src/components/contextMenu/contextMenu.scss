@@ -17,6 +17,7 @@
         position: absolute;
         transition: 0.5s;
         visibility: hidden;
+        z-index: 1;
 
         // TODO: remove static styling, add dynamic calculation based on an element display in DOM
         &-userSettings {

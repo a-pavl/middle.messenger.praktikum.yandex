@@ -8,17 +8,14 @@
     <div class="content-container">
         <div class="profile">
             <div class="profile__avatar">
-                <label for="avatar" class="profile__avatar-input">
-                    <img src={{avatar}} alt="Аватар профиля"></image>
-                </label>
-                {{{ Input name="avatar" type="file" }}}
+                {{{ Label image=user.avatar className="profile__avatar-input" onClick=onAvatarClick }}}
             </div>
             <div class="profile__details">
                 <div class="profile__detail">
                     {{{ Label label="Почта" name="email"
                         className="profile__detail-label"
                     }}}
-                    {{{ InputField name="email" type="text" value=email
+                    {{{ InputField name="email" type="text" value=user.email
                         className="profile__detail-input"
                         inputFieldClassName="input-field__profile"
                         validate=validationRules.email
@@ -29,7 +26,7 @@
                     {{{ Label label="Логин" name="login"
                         className="profile__detail-label"
                     }}}
-                    {{{ InputField name="login" type="text" value=login
+                    {{{ InputField name="login" type="text" value=user.login
                         className="profile__detail-input"
                         inputFieldClassName="input-field__profile"
                         validate=validationRules.login
@@ -40,7 +37,7 @@
                     {{{ Label label="Имя" name="first_name"
                         className="profile__detail-label"
                     }}}
-                    {{{ InputField name="first_name" type="text" value=firstName
+                    {{{ InputField name="first_name" type="text" value=user.first_name
                         className="profile__detail-input"
                         inputFieldClassName="input-field__profile"
                         validate=validationRules.name
@@ -51,7 +48,7 @@
                     {{{ Label label="Фамилия" name="second_name"
                         className="profile__detail-label"
                     }}}
-                    {{{ InputField name="second_name" type="text" value=secondName
+                    {{{ InputField name="second_name" type="text" value=user.second_name
                         className="profile__detail-input"
                         inputFieldClassName="input-field__profile"
                         validate=validationRules.name
@@ -62,7 +59,7 @@
                     {{{ Label label="Имя в чате" name="display_name"
                         className="profile__detail-label"
                     }}}
-                    {{{ InputField name="display_name" type="text" value=displayName
+                    {{{ InputField name="display_name" type="text" value=user.display_name
                         className="profile__detail-input"
                         inputFieldClassName="input-field__profile"
                         validate=validationRules.name
@@ -73,7 +70,7 @@
                     {{{ Label label="Телефон" name="phone"
                         className="profile__detail-label"
                     }}}
-                    {{{ InputField name="phone" type="text" value=phone
+                    {{{ InputField name="phone" type="text" value=user.phone
                         className="profile__detail-input"
                         inputFieldClassName="input-field__profile"
                         validate=validationRules.phone
@@ -86,4 +83,16 @@
             </div>
         </div>
     </div>
+
+    {{#with modalConfigs.editAvatar}}
+        {{#if showModal}}
+            {{{ Modal title="Загрузить файл"
+                content=content
+                buttonLabel="Поменять"
+                onClick=onClose
+                onSubmit=onSubmit
+                ref="editAvatar"
+            }}}
+        {{/if}}
+    {{/with}}
 </div>

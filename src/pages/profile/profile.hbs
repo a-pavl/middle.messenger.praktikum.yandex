@@ -7,9 +7,10 @@
     </div>
     <div class="content-container">
         <div class="profile">
+            {{#with user}}
             <div class="profile__avatar">
                 <img src={{avatar}} alt="Аватар профиля"></image>
-                <p class="profile__avatar-label">{{displayName}}</p>
+                <p class="profile__avatar-label">{{display_name}}</p>
             </div>
             <div class="profile__details">
                 <div class="profile__detail">
@@ -22,21 +23,22 @@
                 </div>
                 <div class="profile__detail">
                     <div class="profile__detail-label">Имя</div>
-                    <div class="profile__detail-value">{{firstName}}</div>
+                    <div class="profile__detail-value">{{first_name}}</div>
                 </div>
                 <div class="profile__detail">
                     <div class="profile__detail-label">Фамилия</div>
-                    <div class="profile__detail-value">{{secondName}}</div>
+                    <div class="profile__detail-value">{{second_name}}</div>
                 </div>
                 <div class="profile__detail">
                     <div class="profile__detail-label">Имя в чате</div>
-                    <div class="profile__detail-value">{{displayName}}</div>
+                    <div class="profile__detail-value">{{display_name}}</div>
                 </div>
                 <div class="profile__detail">
                     <div class="profile__detail-label">Телефон</div>
                     <div class="profile__detail-value">{{phone}}</div>
                 </div>
             </div>
+            {{/with}}
             <div class="profile__actions">
                 <div class="profile__action">
                 {{{ Button label="Изменить данные" className="profile__action-edit" onClick=onRedirectToProfileEditData }}}
@@ -45,7 +47,7 @@
                 {{{ Button label="Изменить пароль" className="profile__action-edit" onClick=onRedirectToProfileEditPassword }}}
                 </div>
                 <div class="profile__action">
-                {{{ Button label="Выйти" className="profile__action-exit" onClick=onRedirectToLoginPage }}}
+                {{{ Button label="Выйти" className="profile__action-exit" onClick=onLogout }}}
                 </div>
             </div>
         </div>

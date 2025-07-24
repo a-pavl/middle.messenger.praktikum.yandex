@@ -1,7 +1,7 @@
 import { Block } from '../../lib';
 import { IButtonProps } from './types';
 
-import button from './button.hbs?raw';
+import buttonTemplate from './button.hbs?raw';
 
 export class Button extends Block {
   constructor(props: IButtonProps) {
@@ -14,6 +14,6 @@ export class Button extends Block {
   }
 
   render() {
-    return button;
+    return buttonTemplate;
   }
 }

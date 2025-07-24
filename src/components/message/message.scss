@@ -34,14 +34,14 @@
         }
 
         &-author {
-            position: relative;
-
             span {
                 color: vars.$base-blue;
             }
         }
 
         &-read {
+            position: relative;
+
             &::before {
                 background-image: url('../../assets/msg_read.svg');
                 background-repeat: no-repeat;
